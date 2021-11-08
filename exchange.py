@@ -16,6 +16,22 @@ history_dict = {
 #a list of all the names participating in given year
 inclusion_array_2021 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Christina"]
 
+#a list of all the significant other pairs
+so_pairs = [
+'Hannah : Sam',
+'Sam : Hannah',
+'Abi : Eric',
+'Eric : Abi',
+'Andrew : Callie',
+'Callie : Andrew',
+'Caleb : Jordy',
+'Jordy : Caleb',
+'Nathan : Pauli',
+'Pauli : Nathan',
+'Jesse : Gigi',
+'Gigi : Jesse' 
+]
+
 def check_repetition(previous_year, this_year):
     if any(name_pair in previous_year for name_pair in this_year):
         print("Duplicates found.")
@@ -28,9 +44,7 @@ def generate_pairs(inclusion_array):
     names_dict = dict()
     for n in range(len(inclusion_array)):
         names_dict[n] = inclusion_array[n]
-        
-    #print(names_dict)
-    
+	
     list_a = list(range(len(inclusion_array)))
     random.shuffle(list_a)
     
@@ -67,15 +81,18 @@ def generate_christmas_rotation(history_dict, inclusion_array):
     #make names dict with int keys
     #random sort per name
     this_year = generate_pairs(inclusion_array)
-    #check for repetition from previous year(s), rerun if needed
     last_year = history_dict['2020']
-    if check_repetition(last_year, this_year) == True:
-        return this_year
-    else:
-        while check_repetition(history_dict['2020'], this_year) == False:
-            #return "blaaaah"
-            this_year = generate_pairs(inclusion_array)
-            if check_repetition(last_year, this_year) == True:
-                return this_year
+
+    while any(name_pair in this_year for name_pair in so_pairs):
+        print("starting over for so")
+        this_year = generate_pairs(inclusion_array)
+        if check_repetition(last_year, this_year) == True:
+            return this_year
+        else:
+            while (check_repetition(last_year, this_year) == False) or (any(name_pair in this_year for name_pair in so_pairs)):
+                this_year = generate_pairs(inclusion_array)
+            return this_year
+    
+   
 
 generate_christmas_rotation(history_dict, inclusion_array_2021)
