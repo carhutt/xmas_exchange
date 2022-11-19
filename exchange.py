@@ -10,11 +10,24 @@ history_dict = {
 		"Nathan : Jesse",
 		"Jesse : Christina",
 		"Christina : Hannah"
-	]
+	],
+    "2021": [
+        "Abi : Christina",
+        "Jesse : Andrew",
+        "Callie : Abi",
+        "Hannah : Callie",
+        "Christina : Jesse",
+        "Eric : Gigi",
+        "Gigi : Hannah",
+        "Andrew : Sam",
+        "Sam : Eric"
+    ]
 }
 
 #a list of all the names participating in given year
 inclusion_array_2021 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Christina"]
+inclusion_array_2022 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Gigi", "Christina", "Nathan", "Monty"]
+
 
 #a list of all the significant other pairs
 so_pairs = [
@@ -26,8 +39,8 @@ so_pairs = [
 'Callie : Andrew',
 'Caleb : Jordy',
 'Jordy : Caleb',
-'Nathan : Pauli',
-'Pauli : Nathan',
+'Nathan : Monty',
+'Monty : Nathan',
 'Jesse : Gigi',
 'Gigi : Jesse' 
 ]
@@ -81,7 +94,7 @@ def generate_christmas_rotation(history_dict, inclusion_array):
     #make names dict with int keys
     #random sort per name
     this_year = generate_pairs(inclusion_array)
-    last_year = history_dict['2020']
+    last_year = history_dict['2021']
 
     while any(name_pair in this_year for name_pair in so_pairs):
         print("starting over for so")
@@ -95,4 +108,4 @@ def generate_christmas_rotation(history_dict, inclusion_array):
     
    
 
-generate_christmas_rotation(history_dict, inclusion_array_2021)
+print(generate_christmas_rotation(history_dict, inclusion_array_2022))
