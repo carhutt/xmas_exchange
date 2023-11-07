@@ -21,13 +21,24 @@ history_dict = {
         "Gigi : Hannah",
         "Andrew : Sam",
         "Sam : Eric"
+    ],
+    "2022": [
+        "Abi : Sam",
+        "Christina : Gigi",
+        "Andrew : Hannah",
+        "Callie : Jesse",
+        "Gigi : Eric",
+        "Sam : Abi",
+        "Hannah : Christina",
+        "Jesse : Callie",
+        "Eric : Andrew"
     ]
 }
 
 #a list of all the names participating in given year
 inclusion_array_2021 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Christina"]
 inclusion_array_2022 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Gigi", "Christina", "Nathan", "Monty"]
-
+inclusion_array_2023 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Jesse", "Gigi", "Christina"]
 
 #a list of all the significant other pairs
 so_pairs = [
@@ -47,10 +58,10 @@ so_pairs = [
 
 def check_repetition(previous_year, this_year):
     if any(name_pair in previous_year for name_pair in this_year):
-        print("Duplicates found.")
+        #print("Duplicates found.")
         return False
     else:
-        print("No duplicates found.")
+        #print("No duplicates found.")
         return True
 
 def generate_pairs(inclusion_array):
@@ -94,18 +105,17 @@ def generate_christmas_rotation(history_dict, inclusion_array):
     #make names dict with int keys
     #random sort per name
     this_year = generate_pairs(inclusion_array)
-    last_year = history_dict['2021']
+    last_year = history_dict['2022']
+    year_before_last = history_dict['2021']
 
     while any(name_pair in this_year for name_pair in so_pairs):
-        print("starting over for so")
+        #print("starting over for so")
         this_year = generate_pairs(inclusion_array)
-        if check_repetition(last_year, this_year) == True:
+        if check_repetition(last_year, this_year) == True or check_repetition(year_before_last, this_year) == True:
             return this_year
         else:
-            while (check_repetition(last_year, this_year) == False) or (any(name_pair in this_year for name_pair in so_pairs)):
+            while (check_repetition(last_year, this_year) == False) or (any(name_pair in this_year for name_pair in so_pairs) or (check_repetition(year_before_last, this_year) == False)):
                 this_year = generate_pairs(inclusion_array)
             return this_year
-    
-   
 
-print(generate_christmas_rotation(history_dict, inclusion_array_2022))
+print(generate_christmas_rotation(history_dict, inclusion_array_2023))
