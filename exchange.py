@@ -46,17 +46,18 @@ history_dict = {
         "Christina : Abi"
     ],
     "2024": [
-        "Deniz : Sam",
-        "Andrew : Jesse",
-        "Gigi : Abi",
-        "Jesse : Deniz",
-        "Christina : Andrew",
-        "Hannah : Eric",
-        "Jordy : Callie",
-        "Callie : Christina",
-        "Eric : Hannah",
-        "Abi : Jordy",
-        "Sam : Gigi"
+        "Deniz : Abi",
+        "Sam : Caleb",
+        "Andrew : Eric",
+        "Abi : Hannah",
+        "Jordy : Gigi",
+        "Eric : Jesse",
+        "Gigi : Andrew",
+        "Christina : Callie",
+        "Hannah : Deniz",
+        "Jesse : Jordy",
+        "Callie : Sam",
+        "Caleb : Christina"
     ]
 
 }
@@ -65,7 +66,7 @@ history_dict = {
 inclusion_array_2021 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Christina"]
 inclusion_array_2022 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Gigi", "Christina", "Nathan", "Monty"]
 inclusion_array_2023 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Jesse", "Gigi", "Christina"]
-inclusion_array_2024 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Jesse", "Gigi", "Christina", "Deniz"]
+inclusion_array_2024 = ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Caleb", "Jesse", "Gigi", "Christina", "Deniz"]
 
 #a list of all the significant other pairs
 so_pairs = [
@@ -138,7 +139,7 @@ def generate_christmas_rotation(history_dict, inclusion_array):
     year_before_last = history_dict['2022']
 
     while any(name_pair in this_year for name_pair in so_pairs):
-        #print("starting over for so")
+        print("starting over for so")
         this_year = generate_pairs(inclusion_array)
         if check_repetition(last_year, this_year) == True and check_repetition(year_before_last, this_year) == True:
             return this_year
