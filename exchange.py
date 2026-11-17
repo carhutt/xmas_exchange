@@ -75,6 +75,18 @@ history_dict = {
         "Jesse : Hannah",
         "Jordy : Eric",
         "Sam : Andrew"
+    ],
+    "2026": [
+        "Abi : Andrew",
+        "Andrew  : Jordy",
+        "Caleb  : Gigi",
+        "Callie : Eric",
+        "Eric : Caleb",
+        "Gigi : Sam",
+        "Hannah : Abi",
+        "Jesse  : Callie",
+        "Jordy : Hannah",
+        "Sam : Jesse"
     ]
 }  
   
@@ -84,7 +96,8 @@ participants_by_year = {
     "2022": ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jesse", "Gigi", "Christina", "Nathan", "Monty"],  
     "2023": ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Jesse", "Gigi", "Christina"],  
     "2024": ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Caleb", "Jesse", "Gigi", "Christina", "Deniz"],  
-    "2025": ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Caleb", "Jesse", "Gigi", "Christina", "Deniz"]  
+    "2025": ["Hannah", "Sam", "Abi", "Eric", "Andrew", "Callie", "Jordy", "Caleb", "Jesse", "Gigi", "Christina", "Deniz"],
+    "2026": ["Hannah", "Sam", "Abi", "Eric", "Andrew ", "Callie", "Caleb ", "Jordy", "Jesse ", "Gigi"]  
 }  
   
 # Significant other pairs (people who shouldn't give to each other)  
@@ -177,7 +190,7 @@ def generate_christmas_rotation(history_dict, participants, current_year=None):
   
 # Example usage  
 if __name__ == "__main__":  
-    current_year = 2025  
+    current_year = 2026
     participants = participants_by_year[str(current_year)]  
       
     print(f"\n🎄 Secret Santa {current_year} 🎄\n")  
